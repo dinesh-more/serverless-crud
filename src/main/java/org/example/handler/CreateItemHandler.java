@@ -4,6 +4,7 @@ import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
 import com.amazonaws.services.dynamodbv2.document.DynamoDB;
 import com.amazonaws.services.dynamodbv2.document.Item;
+import com.amazonaws.services.dynamodbv2.document.PutItemOutcome;
 import com.amazonaws.services.dynamodbv2.document.Table;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
@@ -25,7 +26,7 @@ public class CreateItemHandler implements RequestHandler<Employee, String> {
                 .withString("lastName", employee.getLastName())
                 .withInt("age", employee.getAge());
 
-        table.putItem(item);
+        PutItemOutcome putItemOutcome = table.putItem(item);
 
         return "Item created successfully";
     }

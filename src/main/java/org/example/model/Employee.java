@@ -9,6 +9,19 @@ public class Employee {
     private String lastName;
     private int age;
 
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "employeeId='" + employeeId + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age +
+                '}';
+    }
+
+    public Employee() {
+    }
+
     public Employee(String employeeId, String firstName, String lastName, int age) {
         this.employeeId = employeeId;
         this.firstName = firstName;
